@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Us - Jirro's educational webpage.">
+    <title>About Us - Jirro's Educational Webpage</title>
+
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Jirrocchio's Educational Webpage</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a team of web developers and designers who focus on teaching modern web development techniques, with a futuristic twist. Our aim is to bring the latest technologies like HTML5, CSS3, and responsive design to learners worldwide.</p>
+        <ul>
+            <li><i class="fab fa-html5 icon"></i> HTML5 Semantic Tags</li>
+            <li><i class="fab fa-css3-alt icon"></i> CSS3 Styling</li>
+            <li><i class="fas fa-mobile-alt icon"></i> Responsive Design with Media Queries</li>
+            <li><i class="fas fa-universal-access icon"></i> Web Accessibility</li>
+        </ul>
+    </section>
+
+    <!-- Table Section for Structured Data -->
+    <section id="data">
+        <h2>Web Development Topics Overview</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Description</th>
+                    <th>Icon</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML5</td>
+                    <td>Modern HTML for structuring web content.</td>
+                    <td><i class="fab fa-html5"></i></td>
+                </tr>
+                <tr>
+                    <td>CSS3</td>
+                    <td>Stylesheets for designing web pages.</td>
+                    <td><i class="fab fa-css3-alt"></i></td>
+                </tr>
+                <tr>
+                    <td>Responsive Design</td>
+                    <td>Designing for multiple screen sizes using media queries.</td>
+                    <td><i class="fas fa-mobile-alt"></i></td>
+                </tr>
+                <tr>
+                    <td>Web Accessibility</td>
+                    <td>Ensuring websites are usable by everyone, including people with disabilities.</td>
+                    <td><i class="fas fa-universal-access"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Jirro's Educational Webpage</p>
+        <p>Contact Us: <a href="mailto:info@education.com">info@education.com</a></p>
+    </footer>
+
+    <script>
+     const startRecognitionBtn = document.getElementById('start-recognition');
+
+     // Check if browser supports SpeechRecognition
+     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+     const recognition = new SpeechRecognition();
+
+     // Setup recognition properties
+     recognition.continuous = false; // Stop automatically after a phrase
+     recognition.lang = 'en-US';     // Set the language
+     recognition.interimResults = false; // Do not show interim results
+
+     // Add event listener to the button
+     startRecognitionBtn.addEventListener('click', () => {
+         recognition.start(); // Start speech recognition
+     });
+
+     // Process the speech result
+     recognition.onresult = function (event) {
+         const transcript = event.results[0][0].transcript.toLowerCase(); // Convert the speech to lowercase text
+         console.log('You said: ', transcript);
+
+         // Add logic for handling voice commands
+         if (transcript.includes('home')) {
+             window.location.href = '#home'; // Navigate to Home section
+         } else if (transcript.includes('resources')) {
+             window.location.href = 'resources.html'; // Navigate to Resources page
+         } else if (transcript.includes('about')) {
+             window.location.href = '#about-link'; // Navigate to About Us section
+         } else if (transcript.includes('contact')) {
+             window.location.href = '#contact-link'; // Navigate to Contact Us section
+         } else if (transcript.includes('play video')) {
+             const video = document.querySelector('video');
+             if (video) {
+                 video.play(); // Play the video
+             }
+         } else if (transcript.includes('pause video')) {
+             const video = document.querySelector('video');
+             if (video) {
+                 video.pause(); // Pause the video
+             }
+         } else if (transcript.includes('play audio')) {
+             const audio = document.querySelector('audio');
+             if (audio) {
+                 audio.play(); // Play the audio
+             }
+         } else if (transcript.includes('pause audio')) {
+             const audio = document.querySelector('audio');
+             if (audio) {
+                 audio.pause(); // Pause the audio
+             }
+         } else {
+             alert('Command not recognized, please try again.');
+         }
+     };
+
+     // Error handling
+     recognition.onerror = function (event) {
+         console.error('Speech recognition error:', event.error);
+         alert('An error occurred during speech recognition. Please try again.');
+     };
+    </script>
+
+</body>
+
+</html>

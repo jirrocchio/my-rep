@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Us - Jirro's educational webpage.">
+    <title>Contact Us - Jirro's Educational Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Jirrocchio's Educational Webpage</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Facebook: <a href="https://www.facebook.com/profile.php?id=100080280452496">Facebook.com</a></p>
+        <p>Phone: (123) 456-7890</p>
+
+        <!-- Contact Form -->
+        <h3>Send us a message</h3>
+        <form action="#" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Your name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
+
+            <label for="tel">Phone Number:</label><br>
+            <input type="tel" id="tel" name="tel" placeholder="Your phone number"><br><br>
+
+            <label for="url">Website (optional):</label><br>
+            <input type="url" id="url" name="url" placeholder="https://yourwebsite.com"><br><br>
+
+            <label for="date">Preferred Contact Date:</label><br>
+            <input type="date" id="date" name="contact_date"><br><br>
+
+            <label for="range">How satisfied are you with our services? (1-10):</label><br>
+            <input type="range" id="satisfaction" name="satisfaction" min="1" max="10"><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Jirro's Educational Webpage</p>
+        <p>Contact Us: <a href="mailto:info@education.com">info@education.com</a></p>
+    </footer>
+</body>
+
+</html>

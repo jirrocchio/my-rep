@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<shoes>
+	<shoe>
+		<brand>Nike</brand>
+		<model>Air Max 270</model>
+		<size>42</size>
+		<color>Black</color>
+		<price>2,500</price>
+		<availability>In Stock</availability>
+	</shoe>
+	<shoe>
+		<brand>Puma</brand>
+		<model>RS-X</model>
+		<location>Paris</location>
+		<size>11</size>
+		<color>Blue</color>
+		<price>2,000</price>
+		<availability>In Stock</availability>
+	</shoe>
+	<shoe>
+		<brand>Adidas</brand>
+		<model>UltraBoost 21</model>
+		<size>40</size>
+		<color>White</color>
+		<price>3,000</price>
+		<availability>Out of Stock</availability>
+	</shoe>
+</shoes>
