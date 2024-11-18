@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* Reset some default styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Body styling */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #660a0d;
+    }
+
+    /* Container for the login form */
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Title styling */
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333333;
+      text-align: center;
+    }
+
+    /* Input styling */
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    /* Button styling */
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: #660a0d;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    /* Hover effect for button */
+    .login-container button:hover {
+      background: #5e090c; /* Change to a slightly darker color on hover */
+    }
+
+
+    /* Google Sign-in button */
+    .google-login {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Google Sign-In button styling */
+    .g_id_signin {
+      margin-top: 1rem;
+    }
+
+    /* Show password checkbox */
+    .show-password {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+    }
+
+    .show-password input {
+      margin-right: 8px;
+    }
+
+    /* Error message styling */
+    .error-message {
+      display: none;
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function decodeJwt(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
+    }
+
+    function handleCredentialResponse(response) {
+      const jwt = response.credential;
+      if (jwt) {
+        const userInfo = decodeJwt(jwt);
+
+        localStorage.setItem('username', userInfo.name);
+        localStorage.setItem('email', userInfo.email);
+
+        window.location.href = "index.html";
+      }
+    }
+
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "24033456866-gcsp1g4v7mc5i2jl453teeak1hedqp78.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+
+      google.accounts.id.renderButton(
+        document.getElementById("google-signin-button"),
+        { theme: "outline", size: "large" }
+      );
+
+      google.accounts.id.prompt();
+    }
+
+    // Function to toggle password visibility
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const toggleCheckbox = document.getElementById("show-password");
+
+      passwordInput.type = toggleCheckbox.checked ? "text" : "password";
+    }
+
+    // Simulate login and redirect
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent default form submission
+     
+      const username = document.querySelector('input[name="username"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+
+      if (username === "harold" && password === "jirro") {
+        // Redirect to dashboard if login is successful
+        window.location.href = "dashboard.html"; 
+      } else {
+        document.getElementById('error-message').style.display = 'block';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <input type="text" id="username" name="username" placeholder="Username" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      
+      <div class="show-password">
+        <input type="checkbox" id="show-password" onclick="togglePassword()">
+        <label for="show-password">Show Password</label>
+      </div>
+      
+      <button type="submit">Log In</button>
+    </form>
+
+    <div id="error-message" class="error-message">Incorrect username or password.</div>
+
+    <div class="google-login">
+      <!-- Google Sign-In Button -->
+      <div id="google-signin-button"></div>
+    </div>
+  </div>
+</body>
+</html>

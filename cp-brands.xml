@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CellphoneStore>
+    <Brands>
+        <Brand>
+            <Name>Apple</Name>
+            <Model>iPhone 15 Pro</Model>
+            <UnitsAvailable>500</UnitsAvailable>
+        </Brand>
+        <Brand>
+            <Name>Samsung</Name>
+            <Model>Galaxy S23 Ultra</Model>
+            <UnitsAvailable>700</UnitsAvailable>
+        </Brand>
+        <Brand>
+            <Name>Xiaomi</Name>
+            <Model>Redmi Note 12</Model>
+            <UnitsAvailable>1,200</UnitsAvailable>
+        </Brand>
+        <Brand>
+            <Name>Google</Name>
+            <Model>Pixel 8</Model>
+            <UnitsAvailable>300</UnitsAvailable>
+        </Brand>
+    </Brands>
+</CellphoneStore>

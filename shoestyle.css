@@ -1,0 +1,107 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+header {
+    background-color: #167ce8;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-container h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.header-container p {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+/* Main content styling */
+main {
+    padding: 20px;
+}
+
+/* Shoe list section */
+#shoe-list {
+    margin-top: 20px;
+}
+
+#shoe-list h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Brand list styling */
+#brand-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.brand-item {
+    background-color: #e3e2f1;
+    border: 2px solid #24034a;
+    border-radius: 8px;
+    width: 200px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.brand-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.brand-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.brand-item h3 {
+    font-size: 1.4rem;
+    color: #2d3e50;
+}
+
+/* Footer styling */
+footer {
+    background-color: #167ce8;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+#weather {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#weather-info h3 {
+    margin: 0;
+}
+
+footer p {
+    font-size: 1rem;
+}
